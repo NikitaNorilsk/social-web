@@ -9,6 +9,7 @@ function App() {
       <Header />
       <h1></h1>
       <div className='flex pt-3'>
+        Flash
         <div className="w-1/5">
           <Nav />
         </div>
