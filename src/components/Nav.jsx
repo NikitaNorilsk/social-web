@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import '../App.css';
 
 export default function Nav() {
@@ -6,19 +7,19 @@ export default function Nav() {
         <div>
             <nav className='nav bg-blue-300 p-4 h-[80vh] text-xl'>
                 <div>
-                    <a href="#">Profile</a>
+                    <NavLink to="/profile">Profile</NavLink>
                 </div>
                 <div>
-                    <a href="#">Messages</a>
+                    <NavLink to="/dialogs">Messages</NavLink>
                 </div>
                 <div>
-                    <a href="#">News</a>
+                    <NavLink to="/news">News</NavLink>
                 </div>
                 <div>
-                    <a href="#">Music</a>
+                    <NavLink to="music">Music</NavLink>
                 </div>
                 <div>
-                    <a href="#">Settings</a>
+                    <NavLink to="settings">Settings</NavLink>
                 </div>
             </nav>
         </div>
