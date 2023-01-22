@@ -20,8 +20,8 @@ function App(props) {
         </div>
         <div className="w-4/5 pl-3">
           <Routes>
-            <Route path='/profile' element={<Profile data={props} />} />
-            <Route path='/dialogs' element={<Dialogs data={props} />} />
+            <Route path='/profile' element={<Profile data={props.state} addPost={props.addPost}/>} />
+            <Route path='/dialogs' element={<Dialogs data={props.state} />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />

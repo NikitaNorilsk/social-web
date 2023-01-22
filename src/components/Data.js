@@ -38,4 +38,13 @@ let data = {
     ]
 }
 
+export let addPost = (postMessage) => {
+    let newPost = {
+        name: 'Антон Горохов',
+        message:`${postMessage}`,
+        img: 'https://picsum.photos/200'
+    }
+    data.postsData.push(newPost)
+}
+
 export default data
