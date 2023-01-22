@@ -9,7 +9,7 @@ import Settings from './components/Settings';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className='max-w-[1200px] mx-auto'>
@@ -21,8 +21,8 @@ function App() {
           </div>
           <div className="w-4/5 pl-3">
             <Routes>
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/dialogs' element={<Dialogs />} />
+              <Route path='/profile' element={<Profile data={props}/>} />
+              <Route path='/dialogs' element={<Dialogs data={props}/>} />
               <Route path='/news' element={<News />} />
               <Route path='/music' element={<Music />} />
               <Route path='/settings' element={<Settings />} />
