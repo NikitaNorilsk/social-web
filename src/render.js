@@ -5,12 +5,12 @@ import App from './App';
 import { addPost } from './components/Data'
 import { BrowserRouter } from 'react-router-dom';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 export let renderEntireTree = (props) =>{
-    const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
         <BrowserRouter>
         <React.StrictMode>
-            <App state={props} addPost={addPost} />
+            <App data={props} addPost={addPost}/>
         </React.StrictMode>
     </BrowserRouter>
 );

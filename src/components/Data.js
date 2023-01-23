@@ -37,8 +37,16 @@ let data = {
             message: 'Всем здравствуйте, это мой первый пост',
             img: 'https://i.picsum.photos/id/692/200/200.jpg?hmac=PBAPILlS_qaKe0OMYjT0eXnftJjTGdwOgqCQMUVDGbg'
         }
-    ]
+    ],
+    newPostText: 'Введите текст...'
 }
+
+export let updateNewPostText = (newText) => {
+    data.newPostText = newText
+    console.log(data.newPostText)
+    renderEntireTree(data)
+}
+
 
 export let addPost = (postMessage) => {
     let newPost = {
