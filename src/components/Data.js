@@ -1,3 +1,5 @@
+import { renderEntireTree } from "../render"
+
 let data = {
     dialogsData: [
         {
@@ -45,6 +47,8 @@ export let addPost = (postMessage) => {
         img: 'https://picsum.photos/200'
     }
     data.postsData.push(newPost)
+    console.log(data)
+    renderEntireTree(data)
 }
 
 export default data

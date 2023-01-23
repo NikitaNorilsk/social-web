@@ -1,4 +1,5 @@
 import React from 'react'
+import { renderEntireTree } from '../render'
 
 export default function MyPosts(props) {
 
