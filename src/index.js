@@ -1,5 +1,22 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import './index.css';
-import data from './components/Data'
-import {renderEntireTree} from './render'
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import { store } from './components/Data'
 
-renderEntireTree(data)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+export let renderEntireTree = () =>{
+    root.render(
+        <BrowserRouter>
+        <React.StrictMode>
+            <App
+            data={store.data1}
+            addPost={store.addPost}
+            updateNewPostText={store.updateNewPostText}/>
+        </React.StrictMode>
+    </BrowserRouter>
+);
+}
+renderEntireTree(store)
+store.subscribe(renderEntireTree )

@@ -1,20 +1,18 @@
 import React from 'react'
-import { renderEntireTree } from '../render'
-import { updateNewPostText } from './Data'
 
 export default function MyPosts(props) {
 
     let newPostElement = React.createRef()
-
     const addNew = () => {
         let text = newPostElement.current.value
         props.addPost(text)
-        updateNewPostText('')
+        props.updateNewPostText('')
     } 
 
-    let onPostChange = () => {
+    const onPostChange = () => {
         let text = newPostElement.current.value
-        updateNewPostText(text)
+        props.updateNewPostText(text)
+        console.log(text)
     }
 
     return (
@@ -22,7 +20,7 @@ export default function MyPosts(props) {
             <div className="w-24 h-20 bg-gray-300">
                 <button>Remove</button>
                 <input
-                value={props.newPostText}
+                value={props.data.newPostText}
                 ref={newPostElement}
                 onChange={onPostChange}
                 type="text"
