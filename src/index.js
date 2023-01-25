@@ -6,17 +6,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { store } from './components/Data'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let renderEntireTree = () =>{
+export let renderEntireTree = (props) =>{
     root.render(
         <BrowserRouter>
         <React.StrictMode>
             <App
-            data={store.data1}
-            addPost={store.addPost}
-            updateNewPostText={store.updateNewPostText}/>
+            data={props.data1}
+            dispatch={props.dispatch.bind(store)}/>
         </React.StrictMode>
     </BrowserRouter>
 );
 }
 renderEntireTree(store)
-store.subscribe(renderEntireTree )
+store.subscribe(renderEntireTree)

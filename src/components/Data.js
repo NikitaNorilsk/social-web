@@ -1,8 +1,6 @@
 // import { renderEntireTree } from "../render"
 
-let renderEntireTree = () =>{
-    console.log('renderEntireTree')
-}
+
 
 
 
@@ -47,21 +45,44 @@ export let store = {
         ],
         newPostText: 'Введите текст...'
     },
-    updateNewPostText(newText) {
-        store.data1.newPostText = newText
-        renderEntireTree(store)
+    // updateNewPostText(newText) {
+    //     this.data1.newPostText = newText
+    //     this.renderEntireTree(this)
+    //     this.callSubscribe(this.data1)
+    // },
+    // addPost() {
+    //     let newPost = {
+    //         name: 'Антон Горохов',
+    //         message: this.data1.newPostText,
+    //         img: 'https://picsum.photos/200'
+    //     }
+    //     this.data1.postsData.push(newPost)
+    //     this.callSubscribe(this.data1)
+    // },
+    renderEntireTree() {
+        console.log('hi')
     },
-    addPost(postMessage){
-        let newPost = {
-            name: 'Антон Горохов',
-            message:`${postMessage}`,
-            img: 'https://picsum.photos/200'
+    callSubscribe() {
+        console.log('Store was change')
+    },
+    subscribe(observer) {
+        this.renderEntireTree = observer
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                name: 'Антон Горохов',
+                message: action.postMessage,
+                img: 'https://picsum.photos/200'
+            }
+            this.data1.postsData.push(newPost)
+            this.renderEntireTree(this)
+            this.callSubscribe(this.data1)
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this.data1.newPostText = action.newText
+            this.callSubscribe(this.data1)
+            this.renderEntireTree(this)
         }
-        store.data1.postsData.push(newPost)
-        renderEntireTree(store)
-    },
-    subscribe(observer){
-        renderEntireTree = observer
     }
 }
 

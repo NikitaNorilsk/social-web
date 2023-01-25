@@ -11,8 +11,7 @@ export default function Profile(props) {
             <img className='w-32 h-32 rounded-full mt-3' src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
             <MyPosts
                 data={props.data}
-                addPost={props.addPost}
-                updateNewPostText={props.updateNewPostText}
+                dispatch={props.dispatch}
                 />
             {props.data.postsData.map(item => <Post name={item.name} message={item.message} img={item.img} />)}
         </div>
