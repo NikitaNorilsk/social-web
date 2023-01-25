@@ -1,8 +1,6 @@
-// import { renderEntireTree } from "../render"
 
-
-
-
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
 export let store = {
     data1: {
@@ -45,20 +43,6 @@ export let store = {
         ],
         newPostText: 'Введите текст...'
     },
-    // updateNewPostText(newText) {
-    //     this.data1.newPostText = newText
-    //     this.renderEntireTree(this)
-    //     this.callSubscribe(this.data1)
-    // },
-    // addPost() {
-    //     let newPost = {
-    //         name: 'Антон Горохов',
-    //         message: this.data1.newPostText,
-    //         img: 'https://picsum.photos/200'
-    //     }
-    //     this.data1.postsData.push(newPost)
-    //     this.callSubscribe(this.data1)
-    // },
     renderEntireTree() {
         console.log('hi')
     },
@@ -78,6 +62,7 @@ export let store = {
             this.data1.postsData.push(newPost)
             this.renderEntireTree(this)
             this.callSubscribe(this.data1)
+            this.data1.newPostText = ''
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this.data1.newPostText = action.newText
             this.callSubscribe(this.data1)
@@ -85,6 +70,9 @@ export let store = {
         }
     }
 }
+
+export let addPostActionCreator = (text) =>({type: ADD_POST,postMessage: text})
+export let updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 window.state = store
 
