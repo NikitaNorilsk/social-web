@@ -1,6 +1,7 @@
-
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
+const SEND_MESSAGE = 'SEND_MESSAGE'
 
 export let store = {
     data1: {
@@ -24,6 +25,13 @@ export let store = {
                 message: 'Всем здарова, это мой сообщение'
             },
         ],
+        messages: [
+            {id: 1, message: 'Zdarova'},
+            {id: 2, message: 'Zdarova bcem'},
+            {id: 3, message: 'Zdarova rebyata'},
+            {id: 4, message: 'Zdarova narod'},
+            {id: 5, message: 'Zdarova zavod'}
+        ],
         postsData: [
             {
                 name: "Жора Зубенко",
@@ -41,7 +49,8 @@ export let store = {
                 img: 'https://i.picsum.photos/id/692/200/200.jpg?hmac=PBAPILlS_qaKe0OMYjT0eXnftJjTGdwOgqCQMUVDGbg'
             }
         ],
-        newPostText: 'Введите текст...'
+        newPostText: 'Введите текст...',
+        newMessageBody: ''
     },
     renderEntireTree() {
         console.log('hi')
@@ -67,12 +76,25 @@ export let store = {
             this.data1.newPostText = action.newText
             this.callSubscribe(this.data1)
             this.renderEntireTree(this)
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY){
+            this.data1.newMessageBody = action.body
+            this.callSubscribe(this.data1)
+            this.renderEntireTree(this)
+        } else if (action.type === SEND_MESSAGE){
+            let body = this.data1.newMessageBody
+            this.data1.newMessageBody = ''
+            this.data1.messages.push({id: 6, message: body})
+            this.callSubscribe(this.data1)
+            this.renderEntireTree(this)
         }
     }
 }
 
-export let addPostActionCreator = (text) =>({type: ADD_POST,postMessage: text})
-export let updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addPostActionCreator = (text) =>({type: ADD_POST,postMessage: text})
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+export const sendMessageCreator = (text) =>({type: SEND_MESSAGE, body: text})
+export const updateNewMassageBodyCreator = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, body: text})
 
 window.state = store
 

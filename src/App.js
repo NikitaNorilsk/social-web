@@ -24,7 +24,7 @@ function App(props) {
                 data={props.data}
                 dispatch={props.dispatch}
                 />} />
-            <Route path='/dialogs' element={<Dialogs data={props.data} />} />
+            <Route path='/dialogs' element={<Dialogs data={props} />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
