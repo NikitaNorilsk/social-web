@@ -1,5 +1,6 @@
 import React from 'react'
-import { addPostActionCreator, updateNewPostTextActionCreator } from './Data'
+import { addPostActionCreator } from './redux/dialogs-reducer'
+import { updateNewPostTextActionCreator } from './redux/dialogs-reducer'
 
 
 export default function MyPosts(props) {

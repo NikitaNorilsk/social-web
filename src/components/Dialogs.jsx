@@ -1,7 +1,8 @@
 import React from 'react'
 import Dia_item from './Dia_item'
 import Mes_item from './Mes_item'
-import { updateNewMassageBodyCreator, sendMessageCreator } from './Data'
+import { updateNewMassageBodyCreator } from './redux/messages-reducer'
+import { sendMessageCreator } from './redux/messages-reducer'
 
 export default function Dialogs(props) {
 
