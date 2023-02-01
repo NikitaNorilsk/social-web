@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from './components/Data'
+import store from './components/Data';
+import storeRedux from './components/redux/redux-store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export let renderEntireTree = (props) =>{
@@ -18,4 +19,6 @@ export let renderEntireTree = (props) =>{
 );
 }
 renderEntireTree(store)
-store.subscribe(renderEntireTree)
+store.subscribe(() => {
+    renderEntireTree(store)
+})
